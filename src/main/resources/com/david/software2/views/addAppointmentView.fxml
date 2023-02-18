@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="881.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.david.software2.controllers.addAppointmentController">
+   <children>
+      <Text layoutX="281.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Appointment">
+         <font>
+            <Font name="System Bold" size="37.0" />
+         </font>
+      </Text>
+      <Text fx:id="addAppointmentIDText" layoutX="246.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
+      <Text fx:id="addAppointmentTitleText" layoutX="233.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+      <Text fx:id="addAppointmentDescriptionText" layoutX="456.0" layoutY="171.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" />
+      <Text fx:id="addAppointmentLocationText" layoutX="471.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
+      <Text fx:id="addAppointmentTypeText" layoutX="335.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type" />
+      <Text fx:id="addAppointmentStartText" layoutX="176.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start" />
+      <Text fx:id="addAppointmentEndText" layoutX="497.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End" />
+      <Text fx:id="addAppointmentStartHoursText" layoutX="119.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours" />
+      <Text fx:id="addAppointmentStartMinutesText" layoutX="277.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minutes" />
+      <Text fx:id="addAppointmentCustomerText" layoutX="301.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer" />
+      <Text fx:id="addAppointmentUserText" layoutX="331.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User" />
+      <Text fx:id="addAppointmentContactText" layoutX="313.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact" />
+      <DatePicker fx:id="addAppointmentStartField" layoutX="214.0" layoutY="284.0" />
+      <DatePicker fx:id="addAppointmentEndField" layoutX="526.0" layoutY="284.0" />
+      <Spinner fx:id="addAppointmentStartHoursField" layoutX="157.0" layoutY="323.0" prefHeight="26.0" prefWidth="101.0" />
+      <Spinner fx:id="addAppointmentStartMinutesField" layoutX="327.0" layoutY="323.0" prefHeight="26.0" prefWidth="101.0" />
+      <Text fx:id="addAppointmentEndHoursText" layoutX="470.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours" />
+      <Text fx:id="addAppointmentEndMinutesText" layoutX="629.0" layoutY="341.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Minutes" />
+      <Spinner fx:id="addAppointmentEndHoursField" layoutX="509.0" layoutY="323.0" prefHeight="26.0" prefWidth="101.0" />
+      <Spinner fx:id="addAppointmentEndMinutesField" layoutX="679.0" layoutY="323.0" prefHeight="26.0" prefWidth="101.0" />
+      <TextField fx:id="addAppointmentIDField" layoutX="266.0" layoutY="153.0" />
+      <TextField fx:id="addAppointmentTitleField" layoutX="266.0" layoutY="191.0" />
+      <TextField fx:id="addAppointmentDescriptionField" layoutX="530.0" layoutY="153.0" />
+      <TextField fx:id="addAppointmentLocationField" layoutX="530.0" layoutY="189.0" />
+      <TextField fx:id="addAppointmentTypeField" layoutX="370.0" layoutY="237.0" />
+      <ComboBox fx:id="addAppointmentCustomerDropDown" layoutX="370.0" layoutY="371.0" prefWidth="150.0" />
+      <ComboBox fx:id="addAppointmentUserDropDown" layoutX="370.0" layoutY="405.0" prefWidth="150.0" />
+      <ComboBox fx:id="addAppointmentContactDropDown" layoutX="370.0" layoutY="444.0" prefWidth="150.0" />
+      <Button fx:id="addAppointmentAddButton" layoutX="476.0" layoutY="490.0" mnemonicParsing="false" onAction="#addAppointmentAddButtonClick" text="Add" />
+      <Button fx:id="addAppointmentCancelButton" layoutX="370.0" layoutY="490.0" mnemonicParsing="false" onAction="#addAppointmentCancelButtonClick" text="Cancel" />
+   </children>
+</AnchorPane>

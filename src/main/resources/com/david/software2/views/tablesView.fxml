@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="769.0" prefWidth="1270.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.david.software2.controllers.tablesController">
+   <children>
+      <TableView fx:id="tablesCustomerTable" layoutX="54.0" layoutY="155.0" prefHeight="218.0" prefWidth="1191.0">
+        <columns>
+          <TableColumn fx:id="tablesCustomerTableIDColumn" prefWidth="142.0" text="ID" />
+          <TableColumn fx:id="tablesCustomerTableNameColumn" prefWidth="143.0" text="Name" />
+            <TableColumn fx:id="tablesCustomerTableAddressColumn" prefWidth="120.0" text="Address" />
+            <TableColumn fx:id="tablesCustomerTablePostalCodeColumn" prefWidth="187.0" text="Postal Code" />
+            <TableColumn fx:id="tablesCustomerTablePhoneNumberColumn" prefWidth="330.0" text="Phone Number" />
+            <TableColumn fx:id="tablesCustomerTableStateColumn" minWidth="0.0" prefWidth="268.0" text="State / Province" />
+        </columns>
+      </TableView>
+      <TableView fx:id="tablesAppointmentTable" layoutX="54.0" layoutY="488.0" prefHeight="218.0" prefWidth="1191.0">
+         <columns>
+            <TableColumn fx:id="tablesAppointmentTableIDColumn" prefWidth="78.0" text="ID" />
+            <TableColumn fx:id="tablesAppointmentTableTitleColumn" prefWidth="114.0" text="Title" />
+            <TableColumn fx:id="tablesAppointmentTableDescriptionColumn" prefWidth="197.0" text="Description" />
+            <TableColumn fx:id="tablesAppointmentTableLocationColumn" prefWidth="97.0" text="Location" />
+            <TableColumn fx:id="tablesAppointmentTableTypeColumn" prefWidth="134.0" text="Type" />
+            <TableColumn fx:id="tablesAppointmentTableStartColumn" minWidth="0.0" prefWidth="119.0" text="Start" />
+            <TableColumn fx:id="tablesAppointmentTableEndColumn" minWidth="0.0" prefWidth="98.0" text="End" />
+            <TableColumn fx:id="tablesAppointmentTableCustomerIDColumn" minWidth="0.0" prefWidth="105.0" text="Customer ID" />
+            <TableColumn fx:id="tablesAppointmentTableUserIDColumn" minWidth="0.0" prefWidth="113.0" text="UserID" />
+            <TableColumn fx:id="tablesAppointmentTableContactColumn" minWidth="0.0" prefWidth="135.0" text="Contact" />
+         </columns>
+      </TableView>
+      <Button fx:id="tablesAddCustomerButton" layoutX="515.0" layoutY="385.0" mnemonicParsing="false" onAction="#tablesAddCustomerButtonClick" prefHeight="36.0" prefWidth="65.0" text="Add" />
+      <Button fx:id="tablesUpdateCustomerButton" layoutX="611.0" layoutY="385.0" mnemonicParsing="false" onAction="#tablesUpdateCustomerButtonClick" prefHeight="36.0" prefWidth="77.0" text="Update" />
+      <Button fx:id="tablesDeleteCustomerButton" layoutX="717.0" layoutY="385.0" mnemonicParsing="false" onAction="#tablesDeleteCustomerButtonClick" prefHeight="36.0" prefWidth="96.0" text="Delete" />
+      <Button fx:id="tablesAddAppointmentButton" layoutX="515.0" layoutY="716.0" mnemonicParsing="false" onAction="#tablesAddAppointmentButtonClick" prefHeight="36.0" prefWidth="65.0" text="Add" />
+      <Button fx:id="tablesUpdateAppointmentButton" layoutX="611.0" layoutY="716.0" mnemonicParsing="false" onAction="#tablesUpdateAppointmentButtonClick" prefHeight="36.0" prefWidth="77.0" text="Update" />
+      <Button fx:id="tablesDeleteAppointmentButton" layoutX="717.0" layoutY="716.0" mnemonicParsing="false" onAction="#tablesDeleteButtonClick" prefHeight="36.0" prefWidth="96.0" text="Delete" />
+      <Button fx:id="tablesLogoutButton" layoutX="54.0" layoutY="716.0" mnemonicParsing="false" onAction="#tablesLogoutButtonClick" prefHeight="36.0" prefWidth="96.0" text="Logout" />
+      <Text fx:id="tablesAppointmentText" layoutX="54.0" layoutY="467.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Appointments">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <DatePicker fx:id="tablesAppointmentsDateField" layoutX="252.0" layoutY="445.0" onAction="#tablesAppointmentsDateFieldClick" promptText="Date" />
+      <RadioButton fx:id="tablesMonthButton" layoutX="456.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesMonthButtonClick" text="Month" />
+      <RadioButton fx:id="tablesWeekButton" layoutX="531.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesWeekButtonClick" text="Week" />
+      <RadioButton fx:id="tablesAllButton" layoutX="602.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesAllButtonClick" text="All" />
+      <Text fx:id="tablesCustomerText" layoutX="54.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Button fx:id="tablesReportButton" layoutX="164.0" layoutY="716.0" mnemonicParsing="false" onAction="#tablesReportsButtonClick" prefHeight="36.0" prefWidth="114.0" text="Reports" />
+      <Text fx:id="tablesSchedulingText" layoutX="546.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scheduling" wrappingWidth="219.13000106811523">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>
