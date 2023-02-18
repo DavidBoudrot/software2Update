@@ -113,7 +113,7 @@ public class addAppointmentController {
 
     @FXML
     void addAppointmentCancelButtonClick(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(tablesController.class.getResource("/com/david/software2/views/tablesView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(com.david.software2.controllers.tablesController.class.getResource("/com/david/software2/views/tablesView.fxml"));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

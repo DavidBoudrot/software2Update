@@ -49,7 +49,7 @@ public class loginController {
 
         if (loginUsernameField.getText().equals("test") && loginPasswordField.getText().equals("test")) {
             //switch scene to tables view
-            FXMLLoader fxmlLoader = new FXMLLoader(tablesController.class.getResource("/com/david/software2/views/tablesView.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(com.david.software2.controllers.tablesController.class.getResource("/com/david/software2/views/tablesView.fxml"));
             Parent root = fxmlLoader.load();
             Scene scene = new Scene(root);
             Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
