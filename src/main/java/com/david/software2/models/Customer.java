@@ -1,5 +1,12 @@
 package com.david.software2.models;
 
+import com.david.software2.daos.DivisionDao;
+
+import java.sql.SQLException;
+
+/**
+ * Customer class for customer models made from database
+ */
 public class Customer {
     private int customerID;
     private String customerName;
@@ -11,8 +18,10 @@ public class Customer {
     private String lastUpdate;
     private String lastUpdatedBy;
     private int divisionID;
-
- public Customer(int customerID, String customerName, String address, String postalCode, String phone, String createDate, String createdBy, String lastUpdate, String lastUpdatedBy, int divisionID) {
+    /**
+     * Constructer for the customer class
+     */
+    public Customer(int customerID, String customerName, String address, String postalCode, String phone, String createDate, String createdBy, String lastUpdate, String lastUpdatedBy, int divisionID) {
         this.customerID = customerID;
         this.customerName = customerName;
         this.address = address;
@@ -24,86 +33,83 @@ public class Customer {
         this.lastUpdatedBy = lastUpdatedBy;
         this.divisionID = divisionID;
     }
-
+    /**
+     * Getters and setters
+     */
     public int getCustomerID() {
         return customerID;
     }
 
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getCustomerName() {
         return customerName;
     }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getAddress() {
         return address;
     }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getPostalCode() {
         return postalCode;
     }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getPhone() {
         return phone;
     }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getCreateDate() {
         return createDate;
     }
-
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getCreatedBy() {
         return createdBy;
     }
-
+    /**
+     * Getters and setters
+     */
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-
+    /**
+     * Getters and setters
+     */
     public String getLastUpdate() {
         return lastUpdate;
     }
-
+    /**
+     * Getters and setters
+     */
     public void setLastUpdate(String lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
-
+    /**
+     * Getters and setters
+     */
     public String getLastUpdatedBy() {
         return lastUpdatedBy;
     }
-
+    /**
+     * Getters and setters
+     */
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
     }
-
+    /**
+     * Getters and setters
+     */
     public int getDivisionID() {
         return divisionID;
     }
-
-    public void setDivisionID(int divisionID) {
-        this.divisionID = divisionID;
-    }
-
-
 }

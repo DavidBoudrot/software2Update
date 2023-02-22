@@ -5,10 +5,10 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="769.0" prefWidth="1270.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.david.software2.controllers.tablesController">
    <children>
@@ -49,9 +49,12 @@
          </font>
       </Text>
       <DatePicker fx:id="tablesAppointmentsDateField" layoutX="252.0" layoutY="445.0" onAction="#tablesAppointmentsDateFieldClick" promptText="Date" />
-      <RadioButton fx:id="tablesMonthButton" layoutX="456.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesMonthButtonClick" text="Month" />
-      <RadioButton fx:id="tablesWeekButton" layoutX="531.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesWeekButtonClick" text="Week" />
-      <RadioButton fx:id="tablesAllButton" layoutX="602.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesAllButtonClick" text="All" />
+      <RadioButton fx:id="tablesMonthButton" layoutX="456.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesMonthButtonClick" text="Month">
+         <toggleGroup>
+            <ToggleGroup fx:id="appointmentToggle" />
+         </toggleGroup></RadioButton>
+      <RadioButton fx:id="tablesWeekButton" layoutX="531.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesWeekButtonClick" text="Week" toggleGroup="$appointmentToggle" />
+      <RadioButton fx:id="tablesAllButton" layoutX="602.0" layoutY="449.0" mnemonicParsing="false" onAction="#tablesAllButtonClick" text="All" toggleGroup="$appointmentToggle" />
       <Text fx:id="tablesCustomerText" layoutX="54.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customers">
          <font>
             <Font size="26.0" />

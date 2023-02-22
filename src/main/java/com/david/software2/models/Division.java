@@ -1,7 +1,11 @@
 package com.david.software2.models;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 
+/**
+ * The division class for states and provinces.
+ */
 public class Division {
 
     private int divisionID;
@@ -9,11 +13,14 @@ public class Division {
     private int countryID;
     private String createdBy;
     private String lastUpdatedBy;
-    private String createDate;
+    private LocalDateTime createDate;
     private LocalDateTime lastUpdate;
 
 
-    public Division(int divisionID, String divisionName, int countryID, String createdBy, String lastUpdatedBy, String createDate, LocalDateTime lastUpdate) {
+    /**
+     * Constructer for the division class
+     */
+    public Division(int divisionID, String divisionName, int countryID, String createdBy, String lastUpdatedBy, LocalDateTime createDate, LocalDateTime lastUpdate) {
         this.divisionID = divisionID;
         this.divisionName = divisionName;
         this.countryID = countryID;
@@ -22,72 +29,64 @@ public class Division {
         this.createDate = createDate;
         this.lastUpdate = lastUpdate;
     }
-
+    /**
+     * Getters and setters
+     */
     public int getDivisionID() {
         return divisionID;
     }
-
-    public void setDivisionID(int divisionID) {
-        this.divisionID = divisionID;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getDivisionName() {
         return divisionName;
     }
-
-    public void setDivisionName(String divisionName) {
-        this.divisionName = divisionName;
-    }
-
+    /**
+     * Getters and setters
+     */
     public int getCountryID() {
         return countryID;
     }
-
-    public void setCountryID(int countryID) {
-        this.countryID = countryID;
-    }
-
+    /**
+     * Getters and setters
+     */
     public String getCreatedBy() {
         return createdBy;
     }
-
+    /**
+     * Getters and setters
+     */
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-
+    /**
+     * Getters and setters
+     */
     public String getLastUpdatedBy() {
         return lastUpdatedBy;
     }
-
+    /**
+     * Getters and setters
+     */
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
     }
-
-    public String getCreateDate() {
+    /**
+     * Getters and setters
+     */
+    public LocalDateTime getCreateDate() {
         return createDate;
     }
-
-    public void setCreateDate(String createDate) {
-        this.createDate = createDate;
-    }
-
+    /**
+     * Getters and setters
+     */
     public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
-
+    /**
+     * Getters and setters
+     */
     public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
-
-    public void print() {
-        System.out.println("Division ID: " + divisionID);
-        System.out.println("Division Name: " + divisionName);
-        System.out.println("Country ID: " + countryID);
-        System.out.println("Created By: " + createdBy);
-        System.out.println("Last Updated By: " + lastUpdatedBy);
-        System.out.println("Create Date: " + createDate);
-        System.out.println("Last Update: " + lastUpdate);
-    }
-
-
 }

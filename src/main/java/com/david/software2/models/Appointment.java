@@ -1,22 +1,34 @@
 package com.david.software2.models;
 
+/**
+ * Appointment class
+ */
+
+import com.david.software2.daos.ContactDao;
+import com.david.software2.daos.CustomerDao;
+
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+
 public class Appointment {
     private int appointmentID;
     private String title;
     private String description;
     private String location;
     private String type;
-    private String start;
-    private String end;
+    private LocalDateTime start;
+    private LocalDateTime end;
     private int customerID;
     private int userID;
     private int contactID;
-    private String creationDate;
+    private LocalDateTime creationDate;
     private String createdBy;
-    private String lastUpdate;
+    private LocalDateTime lastUpdate;
     private String lastUpdatedBy;
 
-    public Appointment(int appointmentID, String title, String description, String location, String type, String start, String end, int customerID, int userID, int contactID, String creationDate, String createdBy, String lastUpdate, String lastUpdatedBy) {
+    public Appointment(int appointmentID, String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, int customerID, int userID, int contactID, LocalDateTime creationDate, String createdBy, LocalDateTime lastUpdate, String lastUpdatedBy) {
         this.appointmentID = appointmentID;
         this.title = title;
         this.description = description;
@@ -32,117 +44,255 @@ public class Appointment {
         this.lastUpdate = lastUpdate;
         this.lastUpdatedBy = lastUpdatedBy;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public int getAppointmentID() {
         return appointmentID;
     }
 
+    /**
+     * Getters and setters
+     */
+
     public void setAppointmentID(int appointmentID) {
         this.appointmentID = appointmentID;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public String getTitle() {
         return title;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public void setTitle(String title) {
         this.title = title;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public String getDescription() {
         return description;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public void setDescription(String description) {
         this.description = description;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public String getLocation() {
         return location;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public String getType() {
         return type;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public void setType(String type) {
         this.type = type;
     }
 
-    public String getStart() {
+
+    /**
+     * Getters and setters
+     */
+    public LocalDateTime getStart() {
         return start;
     }
 
-    public void setStart(String start) {
+    /**
+     * Getters and setters
+     */
+
+    public void setStart(LocalDateTime start) {
         this.start = start;
     }
 
-    public String getEnd() {
+    /**
+     * Getters and setters
+     */
+
+    public LocalDateTime getEnd() {
         return end;
     }
 
-    public void setEnd(String end) {
+    /**
+     * Getters and setters
+     */
+
+    public void setEnd(LocalDateTime end) {
         this.end = end;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public int getCustomerID() {
         return customerID;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public void setCustomerID(int customerID) {
         this.customerID = customerID;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public int getUserID() {
         return userID;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public void setUserID(int userID) {
         this.userID = userID;
     }
 
+    /**
+     * Getters and setters
+     */
+
     public int getContactID() {
         return contactID;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public void setContactID(int contactID) {
         this.contactID = contactID;
     }
 
-    public String getCreationDate() {
+
+    /**
+     * Getters and setters
+     */
+    public LocalDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(String creationDate) {
+    /**
+     * Getters and setters
+     */
+
+    public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
     }
+
+    /**
+     * Getters and setters
+     */
 
     public String getCreatedBy() {
         return createdBy;
     }
 
+    /**
+     * Getters and setters
+     */
+
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public String getLastUpdate() {
+    /**
+     * Getters and setters
+     */
+
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(String lastUpdate) {
+    /**
+     * Getters and setters
+     */
+
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
-    }
+}
+
+
+    /**
+     * Getters and setters
+     */
 
     public String getLastUpdatedBy() {
         return lastUpdatedBy;
     }
 
+
+    /**
+     * Getters and setters
+     */
     public void setLastUpdatedBy(String lastUpdatedBy) {
         this.lastUpdatedBy = lastUpdatedBy;
+    }
+
+
+    /**
+     * Getters and setters
+     */
+    public String getCustomerName() throws SQLException {
+        String customerName = "";
+        //get customername from id
+        CustomerDao customerDao = new CustomerDao();
+        Customer customer = customerDao.getCustomer(customerID);
+        return customer.getCustomerName();
+
+    }
+
+
+    /**
+     * Getters and setters
+     */
+    public String getContactName() throws SQLException {
+        String contactName = "";
+        //get contactname from id
+        ContactDao cd = new ContactDao();
+        Contact contact = cd.getContact(contactID);
+        return contact.getContactName();
     }
 }
 
