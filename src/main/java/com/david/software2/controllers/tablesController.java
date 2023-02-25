@@ -2,10 +2,10 @@ package com.david.software2.controllers;
 
 import com.david.software2.daos.AppointmentDao;
 import com.david.software2.daos.CustomerDao;
-import com.david.software2.models.User;
 import com.david.software2.models.Alerts;
 import com.david.software2.models.Appointment;
 import com.david.software2.models.Customer;
+import com.david.software2.models.User;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,16 +21,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.sql.SQLDataException;
 import java.sql.SQLException;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
 import java.util.Optional;
-
-import static org.graalvm.compiler.options.OptionType.User;
 
 public class tablesController {
 

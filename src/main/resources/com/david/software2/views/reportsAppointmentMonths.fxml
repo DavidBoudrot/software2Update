@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="723.0" prefWidth="999.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.david.software2.controllers.reportsAppointmentMonthsController">
+   <children>
+      <Text fx:id="reportsReportsText" layoutX="455.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reports">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Text>
+      <RadioButton fx:id="reportsCustomerAppointmentMonths" layoutX="360.0" layoutY="130.0" mnemonicParsing="false" onAction="#showAppointmentMonths" selected="true" text="Customer Appointment months">
+         <toggleGroup>
+            <ToggleGroup fx:id="reportsToggle" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="reportsContactSchedule" layoutX="602.0" layoutY="130.0" mnemonicParsing="false" onAction="#showContactSchedule" text="Contact Schedule" toggleGroup="$reportsToggle" />
+      <RadioButton fx:id="reportsCustomerAppointmentTypes" layoutX="139.0" layoutY="130.0" mnemonicParsing="false" onAction="#showAppointmentTypes" text="Customer Appointment Types" toggleGroup="$reportsToggle" />
+      <RadioButton fx:id="reportsUserSchedule" layoutX="763.0" layoutY="130.0" mnemonicParsing="false" onAction="#showUserSchedule" text="User Schedule" toggleGroup="$reportsToggle" />
+      <Button fx:id="reportsExitButton" layoutX="455.0" layoutY="672.0" mnemonicParsing="false" onAction="#reportsExitButtonClick" prefHeight="35.0" prefWidth="113.0" text="Exit" />
+      <TableView fx:id="appointmentTypes" layoutX="242.0" layoutY="193.0" prefHeight="361.0" prefWidth="549.0">
+        <columns>
+          <TableColumn fx:id="MonthsColumn" prefWidth="270.0" text="Appointment Types" />
+            <TableColumn fx:id="MonthsColumn1" prefWidth="270.0" text="Quantity" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
