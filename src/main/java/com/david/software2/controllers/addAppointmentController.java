@@ -301,7 +301,8 @@ public class addAppointmentController {
         ZoneId zoneID = zoneID = ZoneId.of("America/New_York");
         //convert time to zoneID time
         ZonedDateTime zdt = ZonedDateTime.of(start, zoneID);
-        if ( zdt.getHour() < 8 || zdt.getHour() > 17) {
+        ZonedDateTime endzdt = ZonedDateTime.of(end, zoneID);
+        if ( zdt.getHour() < 8 || zdt.getHour() > 22 || zdt.getHour() == 8 || zdt.getHour() == 22) {
             //check locale and alert
             valid = false;
             if (Locale.getDefault().getLanguage().equals("en")) {
@@ -309,8 +310,19 @@ public class addAppointmentController {
             } else if (Locale.getDefault().getLanguage().equals("fr")) {
                 Alerts.Alert("Erreur", "Erreur", "Le rendez-vous n'est pas dans les heures de bureau");
             }
-        }
 
+
+
+
+
+        } else if (endzdt.getHour() < 8 || endzdt.getHour() > 22 || endzdt.getHour() == 8 || endzdt.getHour() == 22) {
+            valid = false;
+            if (Locale.getDefault().getLanguage().equals("en")) {
+                Alerts.Alert("Error", "Error", "The appointment is not within business hours");
+            } else if (Locale.getDefault().getLanguage().equals("fr")) {
+                Alerts.Alert("Erreur", "Erreur", "Le rendez-vous n'est pas dans les heures de bureau");
+            }
+        }
         return valid;
     }
 

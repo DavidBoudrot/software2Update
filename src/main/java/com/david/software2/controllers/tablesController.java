@@ -26,8 +26,10 @@ import java.time.LocalDate;
 import java.time.temporal.WeekFields;
 import java.util.Locale;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class tablesController {
+    Locale locale = Locale.getDefault();
 
     @FXML
     private Button tablesAddAppointmentButton;
@@ -468,7 +470,7 @@ public class tablesController {
     @FXML
     void tablesLogoutButtonClick(ActionEvent event) throws Exception {
         //switch to login view
-        FXMLLoader fxmlLoader = new FXMLLoader(tablesController.class.getResource("/com/david/software2/views/loginView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("/com/david/software2/views/loginView.fxml"), ResourceBundle.getBundle("com/david/software2/bundles/lang", locale));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

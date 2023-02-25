@@ -28,6 +28,8 @@ public class Software2 extends Application {
      * @param stage
      * @throws IOException
      */
+
+    public Scene scene;
     @Override
     public void start(Stage stage) throws IOException {
         Locale locale = Locale.getDefault();

@@ -17,6 +17,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.xml.stream.Location;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Locale;
@@ -56,6 +57,9 @@ public class loginController {
     @FXML
     private Button loginLoginButton;
 
+    Stage stage;
+    Parent root;
+    Scene scene;
 
     private boolean firstTime;
 
@@ -70,29 +74,21 @@ public class loginController {
      */
 
     @FXML
-    public void initialize() {
+    public void initialize() throws IOException {
+        firstTime = true;
         Locale locale = Locale.getDefault();
         setChoiceBox();
         LocaleText.setText(locale.getDisplayCountry());
 
         if (Locale.getDefault().getDisplayLanguage().equals("English")) {
-            loginUsernameField.setPromptText("Username");
-            loginPasswordField.setPromptText("Password");
-            loginLoginButton.setText("Login");
-            passText.setText("Password");
-            userText.setText("Username");
-            locationText.setText("Location");
 
 
 
         } else {
-            loginUsernameField.setPromptText("Nom d'utilisateur");
-            loginPasswordField.setPromptText("Mot de passe");
-            loginLoginButton.setText("Connexion");
-            passText.setText("Mot de passe");
-            userText.setText("Nom d'utilisateur");
-            locationText.setText("Emplacement");
-
+            //move the title to the left
+            Title.setLayoutX(150);
+            //move the location text to the left
+            locationText.setLayoutX(315);
 
 
         }
@@ -100,12 +96,11 @@ public class loginController {
 
 
     /**
-    * Sets the choice box up with the languages
+     * Sets the choice box up with the languages
      */
     public void setChoiceBox() {
         ObservableList<String> languages = FXCollections.observableArrayList("English", "Français");
         loginLanguageSelect.setItems(languages);
-
         loginLanguageSelect.setValue(Locale.getDefault().getDisplayLanguage());
 
 
@@ -116,41 +111,33 @@ public class loginController {
      * The method for when a language is selected from the combo box.
      * It will change the locale and set the current scenes text fields to the correct language
      */
-    public void loginLanguageSelectClick(ActionEvent actionEvent) throws Exception {
-        String language = loginLanguageSelect.getValue();
-        if (language.equals("English")) {
-            Locale.setDefault(Locale.ENGLISH);
-            loginUsernameField.setPromptText("Username");
-            loginPasswordField.setPromptText("Password");
-            loginLoginButton.setText("Login");
-            passText.setText("Password");
-            userText.setText("Username");
-            Title.setText("Scheduler");
-            locationText.setText("Location");
-
-
-
+    @FXML
+    void loginLanguageSelectClick(ActionEvent actionEvent) throws IOException {
+        if (firstTime) {
+            firstTime = false;
+            return;
         } else {
-            Locale.setDefault(Locale.FRENCH);
-            loginUsernameField.setPromptText("Nom d'utilisateur");
-            loginPasswordField.setPromptText("Mot de passe");
-            loginLoginButton.setText("Connexion");
-            passText.setText("Mot de passe");
-            userText.setText("Nom d'utilisateur");
-            Title.setText("Planificateur");
-            locationText.setText("Emplacement");
-            //move the userText and passText to the left
-            userText.setLayoutX(50);
-            passText.setLayoutX(50);
 
-
-
+            String lang = loginLanguageSelect.getValue();
+            Locale locale;
+            if (lang.equals("English")) {
+                locale = new Locale("en", "US");
+                Locale.setDefault(locale);
+            } else {
+                locale = new Locale("fr", "FR");
+                Locale.setDefault(locale);
+            }
+            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+            FXMLLoader fxmlLoader = new FXMLLoader(loginController.class.getResource("/com/david/software2/views/loginView.fxml"), ResourceBundle.getBundle("com/david/software2/bundles/lang", locale));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.setTitle("Login");
+            stage.show();
 
         }
-
-
-
     }
+
 
     /**
      * method for when the login button is clicked
@@ -192,7 +179,7 @@ public class loginController {
                 } else {
                     Alerts.Alert("Erreur", "Nom d'utilisateur ou mot de passe incorrect", "Veuillez réessayer");
                 }
-            LogUser logUser = new LogUser(username, LocalDateTime.now(), false);
+                LogUser logUser = new LogUser(username, LocalDateTime.now(), false);
             }
         } else {
             Locale locale = Locale.getDefault();
@@ -207,10 +194,20 @@ public class loginController {
 
     /**
      * Method for getting the current user used throughout the program
+     *
      * @return
      */
-        public static User getCurrentUser() {
+    public static User getCurrentUser() {
         return currentUser;
+    }
+
+    protected ObservableList<String> translate(ObservableList<String> text, ResourceBundle bundle) {
+        ObservableList<String> translatedBundle = FXCollections.observableArrayList();
+        for (String string : text) {
+            translatedBundle.add(bundle.getString(string));
+        }
+        return translatedBundle;
+
     }
 }
 
