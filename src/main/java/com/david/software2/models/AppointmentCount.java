@@ -7,6 +7,8 @@ import java.time.LocalDateTime;
  */
 public class AppointmentCount  extends Appointment {
     private int appointmentCount;
+    private String type;
+    private String month;
     public AppointmentCount(int appointmentID, String title, String description, String location, String type, LocalDateTime start, LocalDateTime end, int customerID, int userID, int contactID, LocalDateTime creationDate, String createdBy, LocalDateTime lastUpdate, String lastUpdatedBy) {
         super(appointmentID, title, description, location, type, start, end, customerID, userID, contactID, creationDate, createdBy, lastUpdate, lastUpdatedBy);
     }
@@ -20,4 +22,5 @@ public class AppointmentCount  extends Appointment {
     public void setAppointmentCount(int appointmentCount) {
         this.appointmentCount = appointmentCount;
     }
+
 }

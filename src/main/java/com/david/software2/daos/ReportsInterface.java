@@ -1,9 +1,6 @@
 package com.david.software2.daos;
 
-import com.david.software2.models.Appointment;
-import com.david.software2.models.AppointmentCount;
-import com.david.software2.models.AppointmentMonth;
-import com.david.software2.models.User;
+import com.david.software2.models.*;
 import javafx.collections.ObservableList;
 
 import java.sql.SQLException;
@@ -25,7 +22,7 @@ public interface ReportsInterface  {
 
     public ObservableList<AppointmentCount> reportAllAppointmentTypes() throws SQLException;
 
-    public ObservableList<AppointmentMonth> reportAllMonths() throws SQLException;
+    public ObservableList<AppointmentCountMonthType> reportAllMonths() throws SQLException;
 
 
     public ObservableList<Appointment> contactSchedule(int contactID) throws SQLException;

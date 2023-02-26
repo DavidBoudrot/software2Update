@@ -1,12 +1,12 @@
 package com.david.software2.daos;
 
-import com.david.software2.models.Appointment;
-import com.david.software2.models.AppointmentCount;
-import com.david.software2.models.AppointmentMonth;
-import com.david.software2.models.User;
+import com.david.software2.helper.JDBC;
+import com.david.software2.models.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
 
@@ -19,6 +19,7 @@ public class ReportsDao implements ReportsInterface {
 
     /**
      * This method returns a list of all appointments grouped by type.
+     * LAMBDA USED
      * @return
      * @throws SQLException
      */
@@ -74,37 +75,29 @@ public class ReportsDao implements ReportsInterface {
 
     /**
      * This method returns a list of all appointments grouped by month.
+     *
      * @return
      * @throws SQLException
      */
         @Override
-        public ObservableList<AppointmentMonth> reportAllMonths () throws SQLException {
-            //get all appointments
-            AppointmentDao appointmentDao = new AppointmentDao();
-            ObservableList<Appointment> Allappointments = FXCollections.observableArrayList();
-            Allappointments = appointmentDao.getAllAppointments();
-            ObservableList<AppointmentMonth> appointmentMonths = FXCollections.observableArrayList();
-            for (Appointment appointment : Allappointments) {
-                String month = appointment.getStart().getMonth().toString();
-                boolean unique = true;
-                for (AppointmentMonth appointmentMonth : appointmentMonths) {
-                    if (month.equals(appointmentMonth.getMonth())) { //If the month is already in the list, increment the count for that month.
-                        unique = false;
-                        //If its not unique we need to go back to the first instance of that month and increment the count.
-                        int index = appointmentMonths.indexOf(appointmentMonth);
-                        appointmentMonths.get(index).setCount(appointmentMonth.getCount() + 1);
-                    }
-                }
-                if (unique) { //if the month is not in the list, add it to the list
-                    appointmentMonths.add(new AppointmentMonth(month, 1));
-                }
+        public ObservableList<AppointmentCountMonthType> reportAllMonths () throws SQLException {
 
+            //sql query to get the appointment count by type for each month
+            //get all appointments
+            String sql = "SELECT MONTHNAME(start) AS month, type, COUNT(*) AS count FROM appointments GROUP BY MONTHNAME(start), type";
+            PreparedStatement ps = JDBC.getConnection().prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            ObservableList<AppointmentCountMonthType> appointmentCountMonthTypes = FXCollections.observableArrayList();
+            while (rs.next()) {
+                String month = rs.getString("month");
+                String type = rs.getString("type");
+                int count = rs.getInt("count");
+                AppointmentCountMonthType appointment = new AppointmentCountMonthType(month, type, count);
+                appointmentCountMonthTypes.add(appointment);
             }
-            //This leaves us with a list of unique appointment months and how many times they occur.
-            //Exactly what we need for the report.
-            //There is probably a more efficient way to do this, but this works.
-            return appointmentMonths;
+            return appointmentCountMonthTypes;
         }
+
 
 
     /**

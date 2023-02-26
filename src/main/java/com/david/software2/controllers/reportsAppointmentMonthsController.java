@@ -1,7 +1,7 @@
 package com.david.software2.controllers;
 
 import com.david.software2.daos.ReportsDao;
-import com.david.software2.models.Appointment;
+import com.david.software2.models.AppointmentCountMonthType;
 import com.david.software2.models.AppointmentMonth;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,13 +26,16 @@ import java.sql.SQLException;
 public class reportsAppointmentMonthsController {
 
     @FXML
-    private TableColumn<AppointmentMonth, String> MonthsColumn;
+    private TableColumn<AppointmentCountMonthType, String> MonthsColumn;
 
     @FXML
-    private TableColumn<AppointmentMonth, String> MonthsColumn1;
+    private TableColumn<AppointmentCountMonthType, String> MonthsColumn1;
 
     @FXML
-    private TableView<AppointmentMonth> appointmentTypes;
+    private TableColumn<AppointmentCountMonthType, String> MonthsColumn2;
+
+    @FXML
+    private TableView<AppointmentCountMonthType> appointmentTypes;
 
     @FXML
     private RadioButton reportsContactSchedule;
@@ -61,13 +64,15 @@ public class reportsAppointmentMonthsController {
      * Initializes the controller class.
      */
     public void initialize() throws SQLException {
-        MonthsColumn1.setCellValueFactory(new PropertyValueFactory<>("Month"));;
+        MonthsColumn2.setCellValueFactory(new PropertyValueFactory<>("Month"));;
+        MonthsColumn1.setCellValueFactory(new PropertyValueFactory<>("Type"));;
         MonthsColumn.setCellValueFactory(new PropertyValueFactory<>("Count"));
 
-        MonthsColumn1.setText("Month");
+        MonthsColumn2.setText("Month");
+        MonthsColumn1.setText("Type");
         MonthsColumn.setText("Month Count");
         ReportsDao reportsDao = new ReportsDao();
-        ObservableList<AppointmentMonth> appointmentMonth = FXCollections.observableArrayList();
+        ObservableList<AppointmentCountMonthType> appointmentMonth = FXCollections.observableArrayList();
         appointmentMonth = reportsDao.reportAllMonths();
         //get a list of appointmentMonth objects with the property values of month and month count
         //set the tableview to the list of appointmentMonth objects

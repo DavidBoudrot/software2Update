@@ -1,6 +1,8 @@
 package com.david.software2.models;
 
 
+import javafx.collections.ObservableList;
+
 /**
  * Appointment month class for appointment count by month
  * Looking back this would have been easier to do with sql
@@ -29,4 +31,9 @@ public class AppointmentMonth  {
     public void setCount(int count) {
         this.count = count;
     }
+
+    public void setAppointmentCountMonthTypes(ObservableList<AppointmentCountMonthType> appointmentCountMonthTypes) {
+
+    }
+
 }

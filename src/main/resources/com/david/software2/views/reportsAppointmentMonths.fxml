@@ -27,8 +27,9 @@
       <Button fx:id="reportsExitButton" layoutX="455.0" layoutY="672.0" mnemonicParsing="false" onAction="#reportsExitButtonClick" prefHeight="35.0" prefWidth="113.0" text="Exit" />
       <TableView fx:id="appointmentTypes" layoutX="242.0" layoutY="193.0" prefHeight="361.0" prefWidth="549.0">
         <columns>
-          <TableColumn fx:id="MonthsColumn" prefWidth="270.0" text="Appointment Types" />
-            <TableColumn fx:id="MonthsColumn1" prefWidth="270.0" text="Quantity" />
+          <TableColumn fx:id="MonthsColumn" prefWidth="200.0" text="Appointment Types" />
+            <TableColumn fx:id="MonthsColumn1" prefWidth="200.0" text="Quantity" />
+           <TableColumn fx:id="MonthsColumn2" prefWidth="100" text="Month" />
         </columns>
       </TableView>
    </children>
